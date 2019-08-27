@@ -68,7 +68,9 @@ class WyWorker(threading.Thread):
 def fuzz_start(siteurl, file_ext):
     output = CLIOutput()
 
-    if not siteurl.startswith('http://'):
+    if siteurl.startswith('https://'):
+		pass
+    elif not siteurl.startswith('http://'):
         siteurl = 'http://%s' % siteurl
 
     # 检查waf是否存在
